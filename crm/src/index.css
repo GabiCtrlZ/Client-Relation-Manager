@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  background-color: #ecf0f1
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.nav_bar {
+  background-color: #0a1612;
+  font-size: 25px;
+}
+
+#nav-mobile a:hover {
+  background-color: #3b3b3b
+}
+
+p{
+  display: inline-block;
+}
+
+.table_head{
+  background-color: #F7CE3E;
+  box-shadow: 0px 0px 4px;
+}
+.table_body:hover{
+  background-color: rgb(179, 179, 179);
+}
+.table_body{
+  transition-duration: 0.3s;
+}
+.page_on{
+  background-color: #F7CE3E;
+}
+.arroww{
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.container_search{
+  margin-left: 20px;
+  margin-right: 20px;
+}
