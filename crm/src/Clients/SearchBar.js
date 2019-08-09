@@ -6,7 +6,7 @@ class SearchBar extends Component {
     }
     render() {
         return (
-            <div className="col s2">
+            <div className="col s4 m2">
                 <div className="row">
                     <div className="input-field col s12">
                         <input type="text" name='searchVal' value={this.props.value} onChange={this.handleInput} id="autocomplete-input" className="autocomplete" />

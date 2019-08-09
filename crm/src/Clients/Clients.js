@@ -7,14 +7,14 @@ class Clients extends Component {
         super()
         this.state = {
             searchVal: '',
-            radioVal: '',
+            radioVal: 'Name',
             pageNum: 1
         }
     }
-    handleInput = (e) => {
+    handleInput = async (e) => {
         let name
         let value
-        if (!e.target.value) {
+        if (!e.target.name) {
             value = e.target.textContent
             name = e.target.className
         }
@@ -22,7 +22,8 @@ class Clients extends Component {
             value = e.target.value
             name = e.target.name
         }
-        this.setState({ [name]: value })
+        await this.setState({ [name]: value })
+        await this.changePage(0)
     }
     getKeysArray = () => {
         if (this.props.data[0]) {
@@ -30,12 +31,29 @@ class Clients extends Component {
         }
         return []
     }
-
+    changePage = (num) => {
+        let pageNum = this.state.pageNum + num
+        if (pageNum >= 1 && pageNum <= (this.autoSearch().length / 10) + 1) {
+            this.setState({
+                pageNum
+            })
+        }
+        else if (pageNum > this.autoSearch().length / 10 + 1) {
+            this.setState({
+                pageNum: Math.floor(this.autoSearch().length / 10) + 1
+            })
+        }
+    }
+    autoSearch = () => {
+        let arr = [...this.props.data]
+        return arr.filter(x => x[this.state.radioVal.toLowerCase()].toLowerCase().includes(this.state.searchVal.toLowerCase()))
+    }
     render() {
+        let num = this.state.pageNum * 10
         return (
             <div>
                 <Search state={this.state} handleInput={this.handleInput} />
-                <Table keys={this.getKeysArray()} data={this.props.data.slice(0, 10)}/>
+                <Table update={this.props.update} keys={this.getKeysArray()} data={this.autoSearch().slice(num - 10, num)} pageNum={num / 10} changePage={this.changePage} />
             </div>
         )
     }

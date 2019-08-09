@@ -8,7 +8,7 @@ class Search extends Component {
             <div className='container_search'>
                 <div className="row search_bar">
                     <SearchBar handleInput={this.props.handleInput} value={this.props.state.searchVal} />
-                    <div className="input-field col s4">
+                    <div className="input-field col s8 m4">
                         <form action="#">
                             <RadioButton handleInput={this.props.handleInput} value={'Name'} />
                             <RadioButton handleInput={this.props.handleInput} value={'Email'} />

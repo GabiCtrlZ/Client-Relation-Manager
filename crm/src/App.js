@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css';
 import 'materialize-css'
 import Clients from './Clients/Clients';
+import Actions from './Actions/Actions';
 
 class App extends Component {
   constructor(){
@@ -19,6 +20,33 @@ class App extends Component {
     })
     this.setState({data})
   }
+  update = (id, updateData) =>{
+    let data = [...this.state.data]
+    let user = data.find(x => x['_id'] === id)
+    for (let key of Object.keys(updateData)){
+      user[key] = updateData[key]
+    }
+    this.setState({
+      data
+    })
+  }
+  updateClient = (name, key, value) =>{
+    let data = [...this.state.data]
+    let user = data.find(x => x.name === name)
+    if(!user || !value){
+      return 'error try again'
+    }
+    user[key] = value
+    this.setState({
+      data
+    })
+    return 'Updated successfully'
+  }
+  addClient = async (client) =>{
+    let data = [...this.state.data]
+    data.push(client)
+    await this.setState({data})
+  }
   render() {
     return (
       <Router>
@@ -31,7 +59,9 @@ class App extends Component {
             </ul>
           </div>
         </nav>
-        <Route exact path='/clients' render={()=> <Clients data={this.state.data}/>}/>
+        <Route exact path='/clients' render={()=> <Clients data={this.state.data} update={this.update}/>}/>
+        <Route exact path='/actions' render={()=> <Actions data={this.state.data} updateClient={this.updateClient} addClient={this.addClient} />}/>
+        <Route exact path='/analytics' render={()=> <Clients data={this.state.data}/>}/>
       </Router>
     )
   }
