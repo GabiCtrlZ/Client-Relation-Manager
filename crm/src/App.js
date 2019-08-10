@@ -4,6 +4,7 @@ import './App.css';
 import 'materialize-css'
 import Clients from './Clients/Clients';
 import Actions from './Actions/Actions';
+import Analytics from './Analytics/Analytics';
 
 class App extends Component {
   constructor(){
@@ -61,7 +62,7 @@ class App extends Component {
         </nav>
         <Route exact path='/clients' render={()=> <Clients data={this.state.data} update={this.update}/>}/>
         <Route exact path='/actions' render={()=> <Actions data={this.state.data} updateClient={this.updateClient} addClient={this.addClient} />}/>
-        <Route exact path='/analytics' render={()=> <Clients data={this.state.data}/>}/>
+        <Route exact path='/analytics' render={()=> <Analytics data={this.state.data} />}/>
       </Router>
     )
   }

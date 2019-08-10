@@ -41,9 +41,39 @@ p{
   margin-left: 80px;
   margin-right: 80px;
 }
-.container_search{
+.container_search, .badges_container{
   margin-left: 20px;
   margin-right: 20px;
+}
+.badges_container{
+  margin-top: 1%
+}
+#trending_up{
+  background-color: rgb(47, 173, 47);
+}
+#account_circle{
+  background-color: rgb(216, 43, 43);
+}
+#public{
+  background-color: #edaa02;
+}
+#trending_up:hover{
+  background-color: rgb(47, 173, 47);
+}
+#account_circle:hover{
+  background-color: rgb(216, 43, 43);
+}
+#public:hover{
+  background-color: #edaa02;
+}
+#trending_up, #account_circle, #public, #email{
+  width: 5rem;
+  height: 5rem;
+  cursor: context-menu;
+}
+.btn-floating i {
+  margin-top: 12%;
+  font-size: 3rem
 }
 #client_card{
   background-color: rgba(39, 41, 58, 0.904);
@@ -94,4 +124,10 @@ select{
   color: black;
   padding-left: 15%;
   padding-right: 15%;
+}
+.titles{
+  font-size: 3rem;
+}
+#sales_by_select{
+  height: 30px;
 }
