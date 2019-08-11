@@ -26,7 +26,6 @@ class AddClient extends Component {
         }
         else {
             let obj = {
-                "_id": '1',
                 "name": (this.state.name + ' ' + this.state.surname),
                 "email": this.state.email,
                 "firstContact": (date1.getFullYear() + '-' + (date1.getMonth() + 1) + '-' + date1.getDate()),

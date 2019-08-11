@@ -18,14 +18,14 @@ class Select extends Component {
     componentDidMount = () => {
         this.setState({ key: this.props.keyName })
     }
-    updateCilent = () => {
+    updateCilent = async () => {
         if (this.state.key !== 'sold') {
-            const a = this.props.updateClient(this.props.name, this.state.key, this.state.value)
-            console.log(a)
+            const a = await this.props.updateClient(this.props.name, this.state.key, this.state.value)
+            alert(a)
         }
         else {
-            const a = this.props.updateClient(this.props.name, this.state.key, true)
-            console.log(a)
+            const a = await this.props.updateClient(this.props.name, this.state.key, true)
+            alert(a)
         }
     }
     render() {

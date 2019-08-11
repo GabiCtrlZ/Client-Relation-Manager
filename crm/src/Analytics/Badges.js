@@ -53,10 +53,11 @@ class Badges extends Component {
         const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
         const date = new Date()
         const month = (date.getFullYear() + '-' + (date.getMonth() + 1))
+        const month2 = (date.getFullYear() + '-0' + (date.getMonth() + 1))
         let data = [...this.props.data]
         let newClients = 0
         for (let client of data) {
-                if (client.firstContact.includes(month)){
+                if (client.firstContact.includes(month) || client.firstContact.includes(month2)){
                     newClients++
                 }
         }

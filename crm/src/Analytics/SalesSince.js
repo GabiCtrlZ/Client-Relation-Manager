@@ -10,10 +10,10 @@ export default class SalesSince extends Component {
         for (let i = 0; i < 30; i++) {
             let day
             if (date.getDate() - i >= 1) {
-                day = (`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() - i}`)
+                day = (`${date.getFullYear()}-0${date.getMonth() + 1}-${date.getDate() - i}`)
             }
             else{
-                day = (`${date.getFullYear()}-${date.getMonth()}-${31 + date.getDate() - i}`)
+                day = (`${date.getFullYear()}-0${date.getMonth()}-${31 + date.getDate() - i}`)
             }
             dates[day] = 0
             this.props.data.forEach(x => {
