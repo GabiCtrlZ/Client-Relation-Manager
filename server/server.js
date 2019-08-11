@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const PORT = 8080
 const api = require('./routes/api')
-mongoose.connect('mongodb://localhost/Bank', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost/CRM', {useNewUrlParser: true})
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
@@ -13,6 +13,7 @@ app.use(function (req, res, next) {
     
     next()
 })
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/', api)
