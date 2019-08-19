@@ -23,13 +23,13 @@ class App extends Component {
     this.setState({ data })
   }
   update = async (id, updateData) => {
-    const a = await axios.put('http://localhost:8080/updateClient', { id, updateData }, {
+    await axios.put('http://localhost:8080/updateClient', { id, updateData }, {
       headers: {
         'Content-Type': 'application/json',
       }
     })
     await this.componentDidMount()
-    alert(a)
+    alert('Updated successfully')
   }
   updateClient = async (name, key, value) => {
     let data = [...this.state.data]
